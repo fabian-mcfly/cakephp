@@ -52,6 +52,7 @@ class RulesChecker extends BaseRulesChecker
      * @param array<string> $fields The list of fields to check for uniqueness.
      * @param array<string, mixed>|string|null $message The error message to show in case the rule does not pass. Can
      *   also be an array of options. When an array, the 'message' key can be used to provide a message.
+     * @param array<string, mixed>|string|null $finder The finder to use for checking for existing records.
      * @return \Cake\Datasource\RuleInvoker
      */
     public function isUnique(
@@ -107,6 +108,7 @@ class RulesChecker extends BaseRulesChecker
      * @param \Cake\ORM\Table|\Cake\ORM\Association|string $table The table name where the fields existence will be checked.
      * @param array<string, mixed>|string|null $message The error message to show in case the rule does not pass. Can
      *   also be an array of options. When an array, the 'message' key can be used to provide a message.
+     * @param array<string, mixed>|string|null $finder The finder to use for checking for existing records.
      * @return \Cake\Datasource\RuleInvoker
      */
     public function existsIn(
