@@ -326,6 +326,15 @@ class Session
         }
 
         foreach ($options as $setting => $value) {
+            /**
+             * Skip setting the value if it is null.
+             * This is useful in case the hosting does not allow changing
+             * certain directives via ini_set.
+             */
+            if ($value === null) {
+                continue;
+            }
+
             if (ini_set($setting, (string)$value) === false) {
                 throw new CakeException(
                     sprintf('Unable to configure the session, setting %s failed.', $setting)
